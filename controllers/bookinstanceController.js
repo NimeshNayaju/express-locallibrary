@@ -11,8 +11,18 @@ exports.bookinstance_detail = function(req, res) {
 };
 
 // Display BookInstance create form on GET
+exports.bookinstance_create_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: BookInstance create GET');
+};  
+
+// Display BookInstance create form on POST
 exports.bookinstance_create_post = function(req, res) {
   res.send('NOT IMPLEMENTED: BookInstance create POST');
+};  
+
+// Handle BookInstance delete on GET
+exports.bookinstance_delete_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: BookInstance delete GET');
 };  
 
 // Handle BookInstance delete on POST

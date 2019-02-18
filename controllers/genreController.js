@@ -11,8 +11,18 @@ exports.genre_detail = function(req, res) {
 };
 
 // Display Genre create form on GET
+exports.genre_create_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: Genre create GET');
+};  
+
+// Display Genre create form on POST
 exports.genre_create_post = function(req, res) {
   res.send('NOT IMPLEMENTED: Genre create POST');
+};  
+
+// Handle Genre delete on GET
+exports.genre_delete_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: Genre delete GET');
 };  
 
 // Handle Genre delete on POST

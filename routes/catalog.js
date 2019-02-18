@@ -5,7 +5,7 @@ var router = express.Router();
 var book_controller = require('../controllers/bookController');
 var author_controller = require('../controllers/authorController');
 var genre_controller = require('../controllers/genreController');
-var book_instance_controller = require('../controllers/book_instanceController');
+var book_instance_controller = require('../controllers/bookinstanceController');
 
 // BOOK ROUTES
 // GET catalog home page

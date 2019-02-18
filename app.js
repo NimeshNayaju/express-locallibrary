@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var catalogRouter = requie('./routes/catalog'); // import routes for 'catalog' area of site
+var catalogRouter = require('./routes/catalog'); // import routes for 'catalog' area of site
 
 var app = express();
 
@@ -15,7 +15,8 @@ var app = express();
 
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://nimeshnayaju:nwhnN2yq7iBxSE@cluster0-ali01.azure.mongodb.net/local_library?retryWrites=true';
-mongoose.connect(mongoDB);
+// mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, { useNewUrlParser:true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error: '));

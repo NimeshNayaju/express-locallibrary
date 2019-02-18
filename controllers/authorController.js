@@ -11,8 +11,18 @@ exports.author_detail = function(req, res) {
 };
 
 // Display Author create form on GET
+exports.author_create_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: Author create GET');
+};  
+
+// Display Author create form on POST
 exports.author_create_post = function(req, res) {
   res.send('NOT IMPLEMENTED: Author create POST');
+};  
+
+// Handle Author delete on GET
+exports.author_delete_get = function(req, res) {
+  res.send('NOT IMPLEMENTED: Author delete GET');
 };  
 
 // Handle Author delete on POST
