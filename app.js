@@ -1,16 +1,5 @@
 var createError = require('http-errors');
 var express = require('express');
-
-// set up mongoose connection
-// creates default connection to databse and binds to error event
-
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://nimeshnayaju:<nwhnN2yq7iBx!SE>@cluster0-ali01.azure.mongodb.net/local_library?retryWrites=true';
-mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error: '));
-
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -19,6 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// set up mongoose connection
+// creates default connection to databse and binds to error event
+
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://nimeshnayaju:nwhnN2yq7iBxSE@cluster0-ali01.azure.mongodb.net/local_library?retryWrites=true';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error: '));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
