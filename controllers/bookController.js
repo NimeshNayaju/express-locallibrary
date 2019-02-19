@@ -28,8 +28,8 @@ exports.index = function(req, res) {
 };
 
 // Display list of all Book
-exports.book_list = function(req, res) {
-  Book.find({}, 'title author') //query all Book objects, selecting to return only title and author(and id and virtual fields)
+exports.book_list = function(req, res, next) {
+  Book.find({}, 'title author') //returns all Book objects, selecting to return only title and author(and id and virtual fields)
     .populate('author') //replaces stored book author with full author details
     .exec(function (err, book_list) {
       if (err) {
