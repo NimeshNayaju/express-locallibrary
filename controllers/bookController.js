@@ -4,6 +4,7 @@ var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
 
 var async = require('async');
+var mongoose = require('mongoose');
 
 exports.index = function(req, res) {
   async.parallel({
@@ -40,8 +41,30 @@ exports.book_list = function(req, res, next) {
 };
 
 // Display detail page for a specific Book
-exports.book_detail = function(req, res) {
-  res.send('NOT IMPLEMENTED: Book detail: ' + req.params.id);
+exports.book_detail = function(req, res, next) {
+  // var id = mongoose.Types.ObjectId(req.params.id);
+  async.parallel({
+    book: function(callback) {
+      Book.findById(req.params.id)
+        .populate('author')
+        .populate('genre')
+        .exec(callback);
+    },  
+    book_instance_list: function(callback) {
+      BookInstance.find({'book': req.params.id})
+        .exec(callback);
+    }
+  }, function(err, results) {
+    if(err) {
+      return next(err);
+    }
+    if(results.book == null) {
+      var err = new Error('Book not found!');;
+      err.status = 404;
+      return next(err);
+    }
+    res.render('book_detail', {title: 'Book Detail', book: results.book, book_instance_list: results.book_instance_list});
+  })
 };
 
 // Display Book create form on GET

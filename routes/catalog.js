@@ -24,10 +24,10 @@ router.get('/book/:id/delete', book_controller.book_delete_get);
 router.post('/book/:id/delete', book_controller.book_delete_post);
 
 // GET request to update a Book.
-router.get('/book/:id', book_controller.book_update_get);
+router.get('/book/:id/update', book_controller.book_update_get);
 
 // POST request to update a Book.
-router.post('/book/:id', book_controller.book_update_get);
+router.post('/book/:id/update', book_controller.book_update_get);
 
 // GET request for one Book.
 router.get('/book/:id', book_controller.book_detail);
