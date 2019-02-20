@@ -79,7 +79,7 @@ exports.book_create_get = function(req, res, next) {
     genres: function(callback) {
       Genre.find(callback);
     }
-  }, function(err, callback) {
+  }, function(err, results) {
     if(err) {
       return next(err);
     }
@@ -93,7 +93,7 @@ exports.book_create_post = [
   (req, res, next) => {
     if(!(req.body.genre instanceof Array)) {
       if(typeof req.body.genre === 'undefined') {
-        re1.body.genre = [];
+        req.body.genre = [];
       } else {
         req.body.genre = new Array(req.body.genre);
       }

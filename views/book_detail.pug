@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  h1 #{title}: {book.title}
+  h1 #{title}: #{book.title}
 
   p #[strong Author:]
     a(href=book.author.url) #{book.author.name}
@@ -33,5 +33,5 @@ block content
       p #[strong Id:]&nbsp;
         a(href=book_instance.url) #{book_instance._id}
       
-      else
-        p There are no copies of this book available.
+    else
+      p There are no copies of this book available.
