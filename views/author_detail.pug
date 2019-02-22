@@ -4,6 +4,9 @@ block content
 
   h1 Author: #{author.name}
   p #{author.lifespan}
+  hr
+  p
+    a(href=author.url+'/delete') Delete author
 
   div(style='margin-left: 20px; margin_top: 20px')
 
@@ -14,6 +17,7 @@ block content
         dt
           a(href=book.url) #{book.title}
         dd #{book.summary}
+
 
       else
         p There are no books from this author!
